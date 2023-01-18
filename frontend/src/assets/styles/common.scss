@@ -1,0 +1,49 @@
+#MenuView {
+    z-index: 1;
+    position: relative;
+}
+  
+
+.contents-view {
+    padding-left: 256px;
+    min-height: 100%;
+}
+  
+.grafana-view {
+    min-width: 100%;
+    min-height: 400px;
+}
+
+.container-view {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    max-width: 100% !important; 
+}
+  
+.small-radio label {
+    font-size: 0.875rem;
+}
+
+.v-responsive__sizer {
+    transition: padding-bottom 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+.v-responsive__content {
+    flex: 20 0 0px !important;
+    max-width: 100%;
+}
+
+.accent {
+    background-color: #1867c0 !important;
+    border-color: #1867c0 !important;
+}
+
+.accent--text {
+    color: #005caf !important;
+    caret-color: #005caf !important;
+}
+
+.primary {
+    background-color: #1867c0 !important;
+    border-color: #1867c0 !important;
+}
