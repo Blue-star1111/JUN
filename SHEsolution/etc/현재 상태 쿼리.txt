@@ -1,0 +1,12 @@
+
+-- drop view
+DROP VIEW v_power_label;
+
+-- create view
+CREATE VIEW v_power_label as 
+SELECT datetime,
+       CASE WHEN voltage_harmonics_label = '경고' OR power_factor_label = '경고' THEN '경고'
+            WHEN voltage_harmonics_label = '주의' OR power_factor_label = '주의' THEN '주의'
+			ELSE '정상'
+       END AS power_label
+   FROM tb_facility_power;

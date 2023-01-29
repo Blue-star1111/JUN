@@ -1,0 +1,16 @@
+
+-- drop view
+drop view v_total_wattage_day 
+
+-- create view
+create view v_total_wattage_day as 
+select to_char(datetime, 'yyyymmdd') as timestamp, 
+      (max(cumulative_wattage) - min(cumulative_wattage)) as cumulative_wattage
+ from tb_facility_power
+group by 1;
+
+-- grafana query 
+ SELECT to_timestamp(timestamp, 'YYYYMMDDHH24MISS') as "time",
+       (cumulative_wattage / 20000000) * 100 as "value"
+  FROM v_total_wattage_day
+ ORDER BY 1;

@@ -1,0 +1,20 @@
+
+-- view 삭제
+drop view v_cumulative_wattage_hour;
+
+
+-- view 생성
+create view v_cumulative_wattage_hour as 
+select to_char(datetime, 'yyyymmddhh24') as timestamp, 
+      (max(cumulative_wattage) - min(cumulative_wattage)) as cumulative_wattage
+ from tb_facility_power
+group by 1
+order by 1;
+
+
+-- grafana 쿼리
+ SELECT to_timestamp(timestamp, 'YYYYMMDDHH24MISS') as "time",
+       cumulative_wattage as "value"
+  FROM v_cumulative_wattage_hour
+ ORDER BY 1;
+ 
